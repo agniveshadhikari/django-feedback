@@ -15,7 +15,7 @@ class Profile(models.Model):
     is_teacher = models.BooleanField()
 
     prefix = models.CharField(max_length=10)
-    deoartment = models.ForeignKey(Department, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.user)

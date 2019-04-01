@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import AnonymousUser, User
-from feedback.models import Profile, Feedback, Course
+from feedback.models import Profile, Feedback, Course, Department
 
 def index(request):
     if isinstance(request.user, AnonymousUser):
@@ -95,3 +95,30 @@ def stats(request):
             }
         )
 
+def signup(request):
+    if request.method == 'GET':
+        return render(
+            request,
+            'registration/signup.html',
+            {}
+        )
+    elif request.method == 'POST':
+        user = User.objects.create_user(
+            username=request.POST.get('username'),
+            password=request.POST.get('password'),
+            email=request.POST.get('email'),
+            first_name=request.POST.get('first_name'),
+            last_name=request.POST.get('last_name')
+        )
+
+        profile = Profile(
+            user=user,
+            is_student=(not request.POST.get('stud_teach')=='teacher'),
+            is_teacher=(request.POST.get('stud_teach')=='teacher'),
+            prefix=request.POST.get('prefix'),
+            department=Department.objects.get(name=request.POST.get('dept'))
+        )
+
+        profile.save()
+
+        return HttpResponseRedirect('/login/')
