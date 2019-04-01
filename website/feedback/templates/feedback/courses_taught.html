@@ -1,4 +1,102 @@
-<h1>Hi {{ name }}, courses taught:</h1><br>
-{% for course in courses %}
-<a href='/feedback/stats/?course={{ course.name }}'>{{ course.name }}</a><br>
-{% endfor %}
+<!DOCTYPE HTML>
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+        {% load static %}
+		<title>Feedback - NITDgp</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% static '/feedback/css/main.css' %}">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+                <a class="logo" href="/feedack/">National Institute of Technology Durgapur</a>
+                <a class="logo" href="/accounts/logout/">Logout</a>
+			</header>
+
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>Course Feedback</h1>
+			</div>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+					    <h2>Your Courses</h2>
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in courses %}
+                                    <tr>
+                                        <td>{{ course.code }}</td>
+                                        <td>{{ course.name }}</td>
+                                        <td><a href='/feedback/stats/?course={{ course.name }}'>View Feedbacks</a></td>
+                                    </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>National Institute of Technology Durgapur</h3>
+							<p>
+                                The National Institute of Technology, Durgapur (formerly Regional Engineering College, Durgapur) was established in 1960 under an Act of the Parliament of India as one of the eight such colleges, as a co-operative venture between the Government of India and the Government of West Bengal aimed to function as a pace setter for engineering education in the country and to foster national integration. It is a fully funded premier Technological Institution of the Government of India and is administered by an autonomous Board of Governors. The college was given autonomy in financial and administrative matters to achieve rapid development.
+                            </p>
+						</section>
+						<section>
+							<h4>Academics</h4>
+							<ul class="alt">
+								<li><a href="#">Departments</a></li>
+								<li><a href="#">People</a></li>
+								<li><a href="#">Research</a></li>
+								<li><a href="#">Admissions</a></li>
+							</ul>
+						</section>
+						<section>
+                            <h4>Quick Links</h4>
+                            <ul class="alt">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Notice Board</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </section>
+					</div>
+					<div class="copyright">
+						&copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+        <script src="{% static '/feedback/js/jquery.min.js' %}"></script>
+        <script src="{% static '/feedback/js/browser.min.js' %}"></script>
+        <script src="{% static '/feedback/js/breakpoints.min.js' %}"></script>
+        <script src="{% static '/feedback/js/util.js' %}"></script>
+        <script src="{% static '/feedback/js/main.js' %}"></script>
+
+	</body>
+</html>

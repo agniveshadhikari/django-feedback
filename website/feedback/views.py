@@ -5,7 +5,7 @@ from feedback.models import Profile, Feedback, Course
 
 def index(request):
     if isinstance(request.user, AnonymousUser):
-        return HttpResponse('Please login first')
+        return HttpResponseRedirect('/accounts/login/')
     try:
         if request.user.profile.is_student:
 
@@ -13,11 +13,6 @@ def index(request):
             fb_submitted = Feedback.objects.filter(author=request.user.profile).all()
             courses_submitted = [fb.course for fb in fb_submitted]
             courses_not_submitted = list(set(all_courses).difference(courses_submitted))
-
-            print(all_courses)
-            print(fb_submitted)
-            print(courses_submitted)
-            print(courses_not_submitted)
             return render(
                 request,
                 'feedback/courses_enrolled.html',
@@ -90,6 +85,7 @@ def stats(request):
             request,
             'feedback/course_stats.html',
             {
+                "course": Course.objects.get(name=course_name),
                 "difficulty_scores": difficulty_scores[::-1],
                 "clarity_scores": clarity_scores[::-1],
                 "relevance_scores": relevance_scores[::-1],

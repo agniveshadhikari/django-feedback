@@ -1,52 +1,217 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
-<head>
-    <title>Feedback Form</title>
-</head>
-<body>
+	<head>
+        {% load static %}
+		<title>Feedback - NITDgp</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% static '/feedback/css/main.css' %}">
+	</head>
+	<body class="is-preload">
 
-<h1>{{ course }}</h1>
-<form action="#" name="myForm" method="post">
-{% csrf_token %}
-<table>
+		<!-- Header -->
+			<header id="header">
+                <a class="logo" href="/feedack/">National Institute of Technology Durgapur</a>
+                <a class="logo" href="/logout/">Logout</a>
+			</header>
 
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>Course Feedback</h1>
+			</div>
 
-        <tr>
-            <th> Difficulty </th>
-            <td><input type="text" name="difficulty"></td>
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+                        <form action="#" name="myForm" method="post">
+                            {% csrf_token %}
+                            <table>
+                                <tr>
+                                    <td>How difficult was it to follow the coursework </td>
+                                    <td>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="1" name="difficulty">
+                                            <label for="1">Impossibly Difficult</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="2" name="difficulty">
+                                            <label for="2">Very Difficult</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="3" name="difficulty">
+                                            <label for="3">Fairly Difficult</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="4" name="difficulty">
+                                            <label for="4">Slightly Difficult</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="5" name="difficulty">
+                                            <label for="5">Not Difficult, Just Right</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>How would you rate the clarity of teaching? </td>
+                                    <td>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="1" name="clarity">
+                                            <label for="1">Very Bad</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="2" name="clarity">
+                                            <label for="2">Fairly Bad</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="3" name="clarity">
+                                            <label for="3">Average</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="4" name="clarity">
+                                            <label for="4">Fairly Good</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="5" name="clarity">
+                                            <label for="5">Very Good</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>How would you rate the relevance of the coursework to todays needs? </td>
+                                    <td>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="1" name="relevance">
+                                            <label for="1">Very Irrelevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="2" name="relevance">
+                                            <label for="2">Fairly Irrelevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="3" name="relevance">
+                                            <label for="3">Moderately Relevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="4" name="relevance">
+                                            <label for="4">Fairly Relevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="5" name="relevance">
+                                            <label for="5">Very Relevant</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                    <td>How would you rate the assignments in the coursework? </td>
+                                    <td>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="1" name="assignments">
+                                            <label for="1">Completely Irrelevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="2" name="assignments">
+                                            <label for="2">Somewhat Relevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="3" name="assignments">
+                                            <label for="3">Moderately Relevant</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="4" name="assignments">
+                                            <label for="4">Fairly Interesting</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="5" name="assignments">
+                                            <label for="5">Very Interesting</label>
+                                        </div>
+                                    </td>
+                                <tr>
+                                    <td>How would you rate the overall evaluation in the course? </td>
+                                    <td>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="1" name="evaluation">
+                                            <label for="1">Very Bad</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="2" name="evaluation">
+                                            <label for="2">Fairly Bad</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="3" name="evaluation">
+                                            <label for="3">Moderate</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="4" name="evaluation">
+                                            <label for="4">Fairly Good</label>
+                                        </div>
+                                        <div class="col-4 col-12-small">
+                                            <input type="radio" id="5" name="evaluation">
+                                            <label for="5">Very Good</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Please provide your valuale comments and suggestions </td>
+                                    <td><textarea name="comments"></textarea></td>
+                                </tr>
+                        
+                                <input type="hidden" name="course" value="{{ course }}" hidden>
+                                <input type="hidden" name="author" value="{{ author }}" hidden>
+                                <tr><td colspan="2" style="text-align: center"><input type="submit" value="Go" ></td></tr>
+                            </table>
+                        </form>
+					</div>
+				</div>
+			</section>
 
-        </tr>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>National Institute of Technology Durgapur</h3>
+							<p>
+                                The National Institute of Technology, Durgapur (formerly Regional Engineering College, Durgapur) was established in 1960 under an Act of the Parliament of India as one of the eight such colleges, as a co-operative venture between the Government of India and the Government of West Bengal aimed to function as a pace setter for engineering education in the country and to foster national integration. It is a fully funded premier Technological Institution of the Government of India and is administered by an autonomous Board of Governors. The college was given autonomy in financial and administrative matters to achieve rapid development.
+                            </p>
+						</section>
+						<section>
+							<h4>Academics</h4>
+							<ul class="alt">
+								<li><a href="#">Departments</a></li>
+								<li><a href="#">People</a></li>
+								<li><a href="#">Research</a></li>
+								<li><a href="#">Admissions</a></li>
+							</ul>
+						</section>
+						<section>
+                            <h4>Quick Links</h4>
+                            <ul class="alt">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Notice Board</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </section>
+					</div>
+					<div class="copyright">
+						&copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
+					</div>
+				</div>
+			</footer>
 
-        <tr>
-            <th> Clarity </th>
-            <td> <input type="text" name="clarity"></td>
+		<!-- Scripts -->
+        <script src="{% static '/feedback/js/jquery.min.js' %}"></script>
+        <script src="{% static '/feedback/js/browser.min.js' %}"></script>
+        <script src="{% static '/feedback/js/breakpoints.min.js' %}"></script>
+        <script src="{% static '/feedback/js/util.js' %}"></script>
+        <script src="{% static '/feedback/js/main.js' %}"></script>
 
-        </tr>
-
-        <tr>
-            <th> Relevance </th>
-            <td><input type="text" name="relevance"> </td>
-        </tr>
-            <th> Assignments </th>
-            <td><input type="text" name="assignments"></td>
-        <tr>
-            <th> Evaluation </th>
-            <td><input type="text" name="evaluation"> </td>
-        </tr>
-        <tr>
-            <th> Suggestion </th>
-            <td><input type="text" name="comments"></td>
-        </tr>
-
-        <input type="text" name="course" value="{{ course }}" hidden=True>
-        <input type="text" name="author" value="{{ author }}" hidden=True>
-
-</table>
-
-<input type="submit" value="Go">
-
-</form>
-
-
-</body>
+	</body>
 </html>

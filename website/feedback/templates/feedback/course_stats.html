@@ -1,94 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-</head>
-<body>
+<!DOCTYPE HTML>
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+        {% load static %}
+		<title>Feedback - NITDgp</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+        <link rel="stylesheet" href="{% static '/feedback/css/main.css' %}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+	</head>
+	<body class="is-preload">
 
-    <table>
-        <tr>
-            <td><canvas id="difficulty_chart"   width="350" height="400"></canvas></td>
-            <td><canvas id="clarity_chart"      width="350" height="400"></canvas></td>
-            <td><canvas id="relevance_chart"    width="350" height="400"></canvas></td>        
-            <td><canvas id="assignments_chart"  width="350" height="400"></canvas></td>
-            <td><canvas id="evaluation_chart"   width="350" height="400"></canvas></td>
-        </tr>
-    </table>
-</body>
-</html>>
+		<!-- Header -->
+			<header id="header">
+                <a class="logo" href="/feedack/">National Institute of Technology Durgapur</a>
+                <a class="logo" href="/logout/">Logout</a>
+			</header>
+
+		<!-- Heading -->
+			<div id="heading" >
+                <h1>[{{ course.code}}] - {{ course.name }}</h1> 
+			</div>
+
+		<!-- Main -->
+            <table>
+                <tr>
+                    <td><canvas id="difficulty_chart"   width="350" height="400"></canvas></td>
+                    <td><canvas id="clarity_chart"      width="350" height="400"></canvas></td>
+                    <td><canvas id="relevance_chart"    width="350" height="400"></canvas></td>        
+                    <td><canvas id="assignments_chart"  width="350" height="400"></canvas></td>
+                    <td><canvas id="evaluation_chart"   width="350" height="400"></canvas></td>
+                </tr>
+            </table>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>National Institute of Technology Durgapur</h3>
+							<p>
+                                The National Institute of Technology, Durgapur (formerly Regional Engineering College, Durgapur) was established in 1960 under an Act of the Parliament of India as one of the eight such colleges, as a co-operative venture between the Government of India and the Government of West Bengal aimed to function as a pace setter for engineering education in the country and to foster national integration. It is a fully funded premier Technological Institution of the Government of India and is administered by an autonomous Board of Governors. The college was given autonomy in financial and administrative matters to achieve rapid development.
+                            </p>
+						</section>
+						<section>
+							<h4>Academics</h4>
+							<ul class="alt">
+								<li><a href="#">Departments</a></li>
+								<li><a href="#">People</a></li>
+								<li><a href="#">Research</a></li>
+								<li><a href="#">Admissions</a></li>
+							</ul>
+						</section>
+						<section>
+                            <h4>Quick Links</h4>
+                            <ul class="alt">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Notice Board</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </section>
+					</div>
+					<div class="copyright">
+						&copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+        <script src="{% static '/feedback/js/jquery.min.js' %}"></script>
+        <script src="{% static '/feedback/js/browser.min.js' %}"></script>
+        <script src="{% static '/feedback/js/breakpoints.min.js' %}"></script>
+        <script src="{% static '/feedback/js/util.js' %}"></script>
+        <script src="{% static '/feedback/js/main.js' %}"></script>
+
+	</body>
+</html>
 <script>
-var ctx_difficulty = document.getElementById('difficulty_chart');
-var ctx_clarity = document.getElementById('clarity_chart');
-var ctx_relevance = document.getElementById('relevance_chart');
-var ctx_assignments = document.getElementById('assignments_chart');
-var ctx_evaluation = document.getElementById('evaluation_chart');
-
-var difficulty_chart = new Chart(ctx_difficulty, {
-    type: 'horizontalBar',
-    data: {
-        labels: ["5", "4", "3", "2", "1"],
-        datasets: [{
-            data: {{ difficulty_scores }},
-        }]
-    },
-    options: {
-        responsive: false,
-    }
-});
-
-var clarity_chart = new Chart(ctx_clarity, {
-    type: 'horizontalBar',
-    data: {
-        labels: ["5", "4", "3", "2", "1"],
-        datasets: [{
-            data: {{ clarity_scores }},
-        }]
-    },
-    options: {
-        responsive: false,
-    }
-});
-
-var relevance_chart = new Chart(ctx_relevance, {
-    type: 'horizontalBar',
-    data: {
-        labels: ["5", "4", "3", "2", "1"],
-        datasets: [{
-            data: {{ relevance_scores }},
-        }]
-    },
-    options: {
-        responsive: false,
-    }
-});
-
-var assignments_chart = new Chart(ctx_assignments, {
-    type: 'horizontalBar',
-    data: {
-        labels: ["5", "4", "3", "2", "1"],
-        datasets: [{
-            data: {{ assignments_scores }},
-        }]
-    },
-    options: {
-        responsive: false,
-    }
-});
-
-var evaluation_chart = new Chart(ctx_evaluation, {
-    type: 'horizontalBar',
-    data: {
-        labels: ["5", "4", "3", "2", "1"],
-        datasets: [{
-            data: {{ evaluation_scores }},
-        }]
-    },
-    options: {
-        responsive: false,
-    }
-});
+    var ctx_difficulty = document.getElementById('difficulty_chart');
+    var ctx_clarity = document.getElementById('clarity_chart');
+    var ctx_relevance = document.getElementById('relevance_chart');
+    var ctx_assignments = document.getElementById('assignments_chart');
+    var ctx_evaluation = document.getElementById('evaluation_chart');
+    
+    var difficulty_chart = new Chart(ctx_difficulty, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["5", "4", "3", "2", "1"],
+            datasets: [{
+                data: {{ difficulty_scores }},
+            },]
+        },
+        options: {
+            responsive: false,
+        }
+    });
+    
+    var clarity_chart = new Chart(ctx_clarity, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["5", "4", "3", "2", "1"],
+            datasets: [{
+                data: {{ clarity_scores }},
+            }]
+        },
+        options: {
+            responsive: false,
+        }
+    });
+    
+    var relevance_chart = new Chart(ctx_relevance, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["5", "4", "3", "2", "1"],
+            datasets: [{
+                data: {{ relevance_scores }},
+            }]
+        },
+        options: {
+            responsive: false,
+        }
+    });
+    
+    var assignments_chart = new Chart(ctx_assignments, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["5", "4", "3", "2", "1"],
+            datasets: [{
+                data: {{ assignments_scores }},
+            }]
+        },
+        options: {
+            responsive: false,
+        }
+    });
+    
+    var evaluation_chart = new Chart(ctx_evaluation, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["5", "4", "3", "2", "1"],
+            datasets: [{
+                data: {{ evaluation_scores }},
+            }]
+        },
+        options: {
+            responsive: false,
+        }
+    });
 </script>
