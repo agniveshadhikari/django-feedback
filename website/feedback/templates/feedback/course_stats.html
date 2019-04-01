@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td><canvas id="difficulty_chart"   width="350" height="400"></canvas></td>
+            <td><canvas id="clarity_chart"      width="350" height="400"></canvas></td>
+            <td><canvas id="relevance_chart"    width="350" height="400"></canvas></td>        
+            <td><canvas id="assignments_chart"  width="350" height="400"></canvas></td>
+            <td><canvas id="evaluation_chart"   width="350" height="400"></canvas></td>
+        </tr>
+    </table>
+</body>
+</html>>
+<script>
+var ctx_difficulty = document.getElementById('difficulty_chart');
+var ctx_clarity = document.getElementById('clarity_chart');
+var ctx_relevance = document.getElementById('relevance_chart');
+var ctx_assignments = document.getElementById('assignments_chart');
+var ctx_evaluation = document.getElementById('evaluation_chart');
+
+var difficulty_chart = new Chart(ctx_difficulty, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["5", "4", "3", "2", "1"],
+        datasets: [{
+            data: {{ difficulty_scores }},
+        }]
+    },
+    options: {
+        responsive: false,
+    }
+});
+
+var clarity_chart = new Chart(ctx_clarity, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["5", "4", "3", "2", "1"],
+        datasets: [{
+            data: {{ clarity_scores }},
+        }]
+    },
+    options: {
+        responsive: false,
+    }
+});
+
+var relevance_chart = new Chart(ctx_relevance, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["5", "4", "3", "2", "1"],
+        datasets: [{
+            data: {{ relevance_scores }},
+        }]
+    },
+    options: {
+        responsive: false,
+    }
+});
+
+var assignments_chart = new Chart(ctx_assignments, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["5", "4", "3", "2", "1"],
+        datasets: [{
+            data: {{ assignments_scores }},
+        }]
+    },
+    options: {
+        responsive: false,
+    }
+});
+
+var evaluation_chart = new Chart(ctx_evaluation, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["5", "4", "3", "2", "1"],
+        datasets: [{
+            data: {{ evaluation_scores }},
+        }]
+    },
+    options: {
+        responsive: false,
+    }
+});
+</script>

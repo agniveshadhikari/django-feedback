@@ -1,0 +1,10 @@
+<h1>Courses Enrolled:</h1>
+<h2>Pending Feedbacks</h2><br>
+{% for course in not_submitted %}
+<a href='/feedback/form/?course={{ course.name }}'>{{ course.name }}</a><br>
+{% endfor %}
+
+<h2>Previous Feedbacks</h2><br>
+{% for course in submitted %}
+{{ course.name }}<br>
+{% endfor %}

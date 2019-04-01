@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+
+<h1>{{ course }}</h1>
+<form action="#" name="myForm" method="post">
+{% csrf_token %}
+<table>
+
+
+        <tr>
+            <th> Difficulty </th>
+            <td><input type="text" name="difficulty"></td>
+
+        </tr>
+
+        <tr>
+            <th> Clarity </th>
+            <td> <input type="text" name="clarity"></td>
+
+        </tr>
+
+        <tr>
+            <th> Relevance </th>
+            <td><input type="text" name="relevance"> </td>
+        </tr>
+            <th> Assignments </th>
+            <td><input type="text" name="assignments"></td>
+        <tr>
+            <th> Evaluation </th>
+            <td><input type="text" name="evaluation"> </td>
+        </tr>
+        <tr>
+            <th> Suggestion </th>
+            <td><input type="text" name="comments"></td>
+        </tr>
+
+        <input type="text" name="course" value="{{ course }}" hidden=True>
+        <input type="text" name="author" value="{{ author }}" hidden=True>
+
+</table>
+
+<input type="submit" value="Go">
+
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+<h1>Hi {{ name }}, courses taught:</h1><br>
+{% for course in courses %}
+<a href='/feedback/stats/?course={{ course.name }}'>{{ course.name }}</a><br>
+{% endfor %}
