@@ -31,11 +31,11 @@
 		<!-- Main -->
             <table>
                 <tr>
-                    <td><canvas id="difficulty_chart"   width="350" height="400"></canvas></td>
-                    <td><canvas id="clarity_chart"      width="350" height="400"></canvas></td>
-                    <td><canvas id="relevance_chart"    width="350" height="400"></canvas></td>        
-                    <td><canvas id="assignments_chart"  width="350" height="400"></canvas></td>
-                    <td><canvas id="evaluation_chart"   width="350" height="400"></canvas></td>
+                    <td><canvas id="difficulty_chart"   width="200" height="250"></canvas></td>
+                    <td><canvas id="clarity_chart"      width="200" height="250"></canvas></td>
+                    <td><canvas id="relevance_chart"    width="200" height="250"></canvas></td>        
+                    <td><canvas id="assignments_chart"  width="200" height="250"></canvas></td>
+                    <td><canvas id="evaluation_chart"   width="200" height="250"></canvas></td>
                 </tr>
             </table>
 
@@ -89,6 +89,9 @@
     var ctx_relevance = document.getElementById('relevance_chart');
     var ctx_assignments = document.getElementById('assignments_chart');
     var ctx_evaluation = document.getElementById('evaluation_chart');
+
+    var backgroundColor_list = ['#80BC47','#A0AD4A','#ADA54A','#AD7F4A','#AD564A'];
+    var opt = {responsive: true,legend:{display: false,}};
     
     var difficulty_chart = new Chart(ctx_difficulty, {
         type: 'horizontalBar',
@@ -96,11 +99,12 @@
             labels: ["5", "4", "3", "2", "1"],
             datasets: [{
                 data: {{ difficulty_scores }},
-            },]
+                // label: 'Difficulty Chart',
+            backgroundColor: backgroundColor_list,
+            borderWidth: 1
+            }]
         },
-        options: {
-            responsive: false,
-        }
+        options: opt
     });
     
     var clarity_chart = new Chart(ctx_clarity, {
@@ -109,11 +113,12 @@
             labels: ["5", "4", "3", "2", "1"],
             datasets: [{
                 data: {{ clarity_scores }},
+                label: 'Clarity Chart',
+            backgroundColor:backgroundColor_list,
+            borderWidth: 1
             }]
         },
-        options: {
-            responsive: false,
-        }
+        options: opt
     });
     
     var relevance_chart = new Chart(ctx_relevance, {
@@ -122,11 +127,12 @@
             labels: ["5", "4", "3", "2", "1"],
             datasets: [{
                 data: {{ relevance_scores }},
+                label: 'Relevance Chart',
+            backgroundColor:backgroundColor_list,
+            borderWidth: 1
             }]
         },
-        options: {
-            responsive: false,
-        }
+        options: opt
     });
     
     var assignments_chart = new Chart(ctx_assignments, {
@@ -135,11 +141,12 @@
             labels: ["5", "4", "3", "2", "1"],
             datasets: [{
                 data: {{ assignments_scores }},
+                label: 'Assignments Chart',
+            backgroundColor:backgroundColor_list,
+            borderWidth: 1
             }]
         },
-        options: {
-            responsive: false,
-        }
+        options:opt
     });
     
     var evaluation_chart = new Chart(ctx_evaluation, {
@@ -148,10 +155,11 @@
             labels: ["5", "4", "3", "2", "1"],
             datasets: [{
                 data: {{ evaluation_scores }},
+                label: 'Evaluation Chart',
+            backgroundColor:backgroundColor_list,
+            borderWidth: 1
             }]
         },
-        options: {
-            responsive: false,
-        }
+        options: opt
     });
 </script>
