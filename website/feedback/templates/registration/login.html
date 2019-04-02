@@ -32,6 +32,10 @@
 						<img src="{% static '/registration/images/icons/nitdgp.png' %}" alt="AVATAR">
 					</span>
 
+					{% if form.errors %}
+					<p style="text-align: center; padding-top: 20px">Your username and password didn't match<br>Please try again</p>
+					{% endif %}
+
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
                         <input class="input100" type="text" name="username" id="id_username">
 						<span class="focus-input100" data-placeholder="Username"></span>

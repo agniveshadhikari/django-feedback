@@ -5,7 +5,7 @@ from feedback.models import Profile, Feedback, Course, Department
 
 def index(request):
     if isinstance(request.user, AnonymousUser):
-        return HttpResponseRedirect('/accounts/login/')
+        return HttpResponseRedirect('/login/')
     try:
         if request.user.profile.is_student:
 
